@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-worker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+        - name: redis
+          image: redis
+          command:
+            - redis-server
+          args:
+            - '--slaveof'
+            - redis-service
+            - '6379'
+            - '--protected-mode'
+            - 'no'
+            - '--replica-read-only'
+            - 'no'
