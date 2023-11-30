@@ -54,6 +54,17 @@ On veut maintenant augmenter la capacité de la base de donnée redis.
 
 On peut s'inspirer de ce <a href="https://github.com/codenote-net/docker-redis-master-slave/blob/master/docker-compose.yml">docker-compose</a> pour remplacer la base redis par un cluster.
 
+### Monté de version
+
+La version déployé du serveur est la 1.0.0. Elle est assez pauvre en log. On voudrait augmenter cette version sans rentre indisponible notre serveur.
+
+Pour ça on veut tester les version 1.0.1 et 1.0.3 de la même image.
+
+Attention la verion 1.0.1 ne démarre pas à cause d'un bug.
+
+En changeant le numéro de version dans le fichier yml on peut modifier la version déployé.
+Cependant on voudrait également utiliser la stratégie de déploiement en `rollingUpdate` pour garder un serveur en ligne pendant toute l'opération.
+
 ## Commandes utiles
 
 Visualiser les ressources déployées
