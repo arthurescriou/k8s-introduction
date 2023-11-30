@@ -1,15 +1,12 @@
 # K8S-introduction
 
-
 ## Prérequis
 
 - minikube
 
-
 ## Objectif
 
 Déployer une application sur un cluster minikube
-
 
 ### Redis
 
@@ -37,9 +34,11 @@ env:
 ```
 
 ### Service
+
 Créer un service pour le serveur node-redis et le rentre accessible de l'exterieur du cluster.
 
 ### Pods
+
 Un fois qu'un serveur fonctionne augmentez le nombre de pods (node-redis), entre 3 et 5. Et vérifier que cela fonctionne toujours.
 
 ### Frontend
@@ -49,6 +48,11 @@ https://github.com/arthurescriou/redis-react
 
 <a href="https://github.com/arthurescriou/redis-react/blob/9deaa0cf1d1397aa8206083773f24c86bb4caa0d/src/App.js#L5"> pensez à modifier le port si besoin</a>
 
+### Mise à l'échelle
+
+On veut maintenant augmenter la capacité de la base de donnée redis.
+
+On peut s'inspirer de ce <a href="https://github.com/codenote-net/docker-redis-master-slave/blob/master/docker-compose.yml">docker-compose</a> pour remplacer la base redis par un cluster.
 
 ## Commandes utiles
 
